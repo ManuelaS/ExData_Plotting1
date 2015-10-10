@@ -21,11 +21,13 @@ data$Date = as.Date(data$Date,format='%d/%m/%Y')
 sub_data <- data[data$Date=='2007-02-01' | data$Date=='2007-02-02',]
 merged_date_time <- strptime(paste(sub_data$Date,sub_data$Time, sep=' '),'%Y-%m-%d %H:%M:%S')
 
-
+# Generate plot4
+# Background is set to transparent as the plots in the repo have transparent background
 png('plot4.png',
     width=480,
     height=480,
-    units='px')
+    units='px',
+    bg='transparent')
 # Create 2 x 2 layout
 par(mfrow = c(2, 2))
 

@@ -22,10 +22,12 @@ sub_data <- data[data$Date=='2007-02-01' | data$Date=='2007-02-02',]
 merged_date_time <- strptime(paste(sub_data$Date,sub_data$Time, sep=' '),'%Y-%m-%d %H:%M:%S')
 
 # Generate plot1
+# Background is set to transparent as the plots in the repo have transparent background
 png('plot1.png',
     width=480,
     height=480,
-    units='px')
+    units='px',
+    bg='transparent')
 hist(sub_data$Global_active_power,
      breaks=12,
      xlim=c(0,6),

@@ -19,14 +19,15 @@ data <-read.table('./household_power_consumption.txt',
 # Format date and time and subset dataset to only 2007-02-01 and 2007-02-02
 data$Date = as.Date(data$Date,format='%d/%m/%Y')
 sub_data <- data[data$Date=='2007-02-01' | data$Date=='2007-02-02',]
-
-
 merged_date_time <- strptime(paste(sub_data$Date,sub_data$Time, sep=' '),'%Y-%m-%d %H:%M:%S')
 
+# Generate plot2
+# Background is set to transparent as the plots in the repo have transparent background
 png('plot2.png',
     width=480,
     height=480,
-    units='px')
+    units='px',
+    bg='transparent')
 plot(merged_date_time,sub_data$Global_active_power,
      type='l',
      xlab='',
